@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Work</title>
+</head>
+<body>
+  <!-- Home work for practice -->
+<h1>Qus. Write a JavaScript program that takes input of a students marks in 3 subjects, checks eligibility for passing, applies some conditions for scholarships, and also uses bitwise operations for unique student ID formatting.</h1>
+</body>
+<script>
+  let name="Sonu madhesiya";
+  console.log("Student Name :" +name);
+  let rollno= 62;
+  console.log("Rollno:" +rollno);
+  let a1=85; a2=92; a3=87; //maarks of students
+  
+//  Assignment operators
+  let total = 0;
+  total += a1;
+  total += a2;
+  total += a3;
+
+  // Arithmatic operaotrs
+  console.log("total marks:" +total);
+  let percentage =(total/300)*100;
+  console.log("Percentage :" +percentage + " % ");
+  let average = total/3;
+  console.log("Average :" +average);
+
+  // Comparsion operators
+  let Passall = (a1>=35 && a2>=35 && a3>=35);
+
+  // Ternary operators
+  let result =Passall?"pass":"Fail";
+  console.log("Result :" +result);
+  //  Logical operator
+  let scholarships =(average>75 && total<=250 ? "Eligible":"Not eligible");
+  console.log("Scolarships :" +scholarships);
+
+  // Bitwise operator
+  let uniqueId= rollno&2; //62&2
+  console.log("UniqueId :" +uniqueId); //2
+
+  // let a=62;
+  // let b =2;
+  // console.log(a&b);
+  
+  let iseven =(rollno % 2 ===0);
+  console.log("Iseven : " +iseven );
+
+  
+</script>
+</html>
