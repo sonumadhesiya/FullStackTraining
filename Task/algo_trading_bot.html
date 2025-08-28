@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algo_Trading_Bot</title>
+</head>
+<body>
+
+<script>
+  let balance = 1000;
+  let stock = 0;
+  let count =0;
+  
+  function trade(price){
+    if(price<30 && balance >=price){
+      stock++;
+      balance = balance-price;
+      console.log("Buy:",price);
+    }else if(price>70 && stock>0){
+      stock--;
+      balance= balance+price;
+       console.log("Sell:",price);
+    }else{
+       console.log("Hold:" +price);
+    }
+  }
+    function getprice(){
+    return Math.floor(Math.random()*100)+1;
+  }
+  function Botrun(){
+    count++;
+    let price = getprice();
+    trade(price);
+    console.log("Balance:",balance ,"stock:" ,stock);
+    console.log("Run:", count);
+    console.log("--------");
+    if(count>=10){
+      clearInterval(botId);
+      console.log("bot stoped running after 10");
+      
+    }
+  }
+  let botId = setInterval(Botrun, 1000);
+</script>
+</body>
+</html>
