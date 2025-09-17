@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array</title>
+</head>
+<body>
+  <p id="demo"></p>
+  <p id="string"></p>
+  <p id="name"></p>
+  <p id="data"></p>
+  <script>
+    const fruits=["Banana","apple","grapes","orange"];
+    let size =fruits.length;
+    document.getElementById("demo").innerHTML="The fruits length is:" + size;
+    //convert to string
+    const fruit=["Banana","apple","grapes","orange"];
+    let mylist=fruit.toString();
+    document.getElementById("string").innerHTML="shopping list:" +mylist;
+    //join method 
+    let name=["sonu","rakesh","vineet","raj","shiva"]
+    let myname=name.join("-");
+    let data=name.at(-1);//at method use for negative element access
+    document.getElementById("name").innerHTML="my name is: " +myname;
+    document.getElementById("data").innerHTML="my name is: " +data;
+  </script>
+</body>
+</html>
