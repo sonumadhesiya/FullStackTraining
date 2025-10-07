@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map</title>
+</head>
+<body>
+  <p id="demo"></p>
+  <p id="demo1"></p>
+
+  <script>
+    const marks =[20,30,40,50];
+    const mark=marks.map(m => m+10);
+    const mm=marks.filter(m=>m>33);//filter use
+    document.getElementById("demo").innerHTML="marks: " +mark;
+    document.getElementById("demo1").innerHTML="marks: " +mm;
+    //string change into array
+    let word = "sonu";
+    let letters = Array.from(word);
+    console.log(letters);
+    
+  </script>
+</body>
+</html>

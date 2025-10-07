@@ -10,6 +10,13 @@
   <p id="string"></p>
   <p id="name"></p>
   <p id="data"></p>
+   <p id="delete"></p>
+  <p id="copywithin"></p>
+  <p id="fruitt"></p>
+  <p id="fruitts"></p>
+  <p id="include"></p>
+  <p id="find"></p>
+  <p id="demo2"></p>
   <script>
     const fruits=["Banana","apple","grapes","orange"];
     let size =fruits.length;
@@ -24,6 +31,48 @@
     let data=name.at(-1);//at method use for negative element access
     document.getElementById("name").innerHTML="my name is: " +myname;
     document.getElementById("data").innerHTML="my name is: " +data;
+
+    //delete(17/9/2025)
+    let fullname=["sonu","rakesh","vineet","raj","shiva"];
+    delete fullname[1];
+    document.getElementById("delete").innerHTML=fullname;
+    //copy within 
+     let change=["sonu","rakesh","vineet","raj","shiva"];
+     change.copyWithin(2,0,1);
+     document.getElementById("copywithin").innerHTML=change;
+
+    //  let n=5;
+    //  let fact=1;
+    //  for(let i=1; i<=n; i++){
+    //   fact=fact*i;
+    //   console.log(fact);
+    //  }
+    
+    // for(let i=1; i<=5; i++){
+    //   let pattern=" ";
+    //   for(let j=1; j<=i; j++){
+    //    pattern+="*";
+    //   }
+    //   console.log(pattern);
+    // }
+    //18/9/25
+    let fruitt=["apple","orange","apple","mango"];
+    let index = fruitt.indexOf("apple",1);
+    let indexx = fruitt.lastIndexOf("apple");
+
+    document.getElementById("fruitt").innerHTML="first 'apple' found at index :" +index;
+     document.getElementById("fruitts").innerHTML="first 'apple' found at index :" +indexx;
+//include
+    let m =["apple", "mango","grapes","orange"];
+    document.getElementById("include").innerHTML="is grapes in the list:"+m.includes("grapes");
+    let ages=[12,22,30,45,28];
+    document.getElementById("find").innerHTML="first adult age is:" +ages.find(ages=>ages>18); 
+    //+"index of adult is: " +ages.findindex(ages=>ages>18);
+
+    let temp =[27,28,29,40,42,35,30];//right to left
+    let pos =temp.findlast(t => t > 40);
+
+    document.getElementById("demo2").innerHTML="last high temperature above 40 is: " + pos;
   </script>
 </body>
 </html>

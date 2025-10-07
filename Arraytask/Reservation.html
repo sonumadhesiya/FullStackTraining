@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Train Reservation</title>
+</head>
+<body>
+  <h1>Train Reservation System</h1>
+  <p><b>Name:</b>["Sonu","Madhu","Shiva","Nayera"]</p>
+  <p><b>Age:</b>[23,22,62,70]</p>
+  <p><b>Seat:</b>["S1","S2","S3","S4"]</p>
+  <p><b>Gender:</b>["M","F","M","F"]</p>
+  <p id="train">Train Result goes here...</p>
+  <script>
+    let name=["Sonu","Madhu","Shiva","Nayera"];
+    let age=[23,22,62,70];
+    let seat=["S1","S2","S3","S4"];
+    let gender=["M","F","M","F"];
+    let output =" ";
+    output += "1.Passenger list :<br>" + name.map((n,i)=> `Passenger:${n} | Age: ${age[i]} | Seat: ${seat[i]} | Gender: ${gender[i]}`).join("<br>");
+    output +="<br><br>2.Senior Citizen: "+ name.filter((_,i)=>age[i]>60).join(",");
+    output += "<br>3.Touppercase: " +name.map(n=>n.toUpperCase()).join(",");
+    output += "<br>4.Total age =" +age.reduce((sum ,a)=>sum+a,0);
+    output += "<br>5.Total age Reverse =" +age.reduceRight((sum,a) =>sum+a);
+    output += "<br>6.Check adults:" +age.every(a=>a>=18);
+    output += "<br>7.Check minor:" +age.every(a=>a<18);
+    let seatstr ="12,13,14,15";
+    let change = Array.from(seatstr.split());
+    output += "<br>8.Converted Seats:" +change;
+    let newName=[...name,"Raj","Pinki"];
+    output += "<br>9.New Passenger list:" +newName.join(",");
+    let [first,...rest]=name;
+    output += "<br>10.First Passenger:" +first+"<br>Rest:" +rest;
+    document.getElementById("train").innerHTML=output;
+   </script>
+</body>
+</html>

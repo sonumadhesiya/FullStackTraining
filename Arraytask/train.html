@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Train Reservation System</title>
+  <style>
+    body {
+      font-family: Arial,  sans-serif;
+      background: hsl(60, 1%, 13%);
+      color: rgb(254, 4, 4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      display: flex;
+      gap: 50px;
+    }
+    .left {
+      background: #222;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .left h2 {
+      color: #fff;
+    }
+    button {
+      display:block;
+      width: 200px;
+      margin: 6px 0;
+      padding: 8px;
+      background: #046619;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #ee0505;
+    }
+    .right {
+      background: rgb(229, 232, 199);
+      padding: 20px;
+      border-radius: 10px;
+      width: 380px;
+      height: 360px;
+      overflow-y: auto;
+      box-shadow: 0 0 15px rgb(241, 127, 127);
+    }
+
+    .typing {
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      animation: typing 3s steps(40,end);
+    }
+    @keyframes typing { 
+      from { 
+        width: 0
+       }
+       to {
+         width: 80%
+         } 
+      }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left">
+      <h2>Train Reservation</h2>
+      <button onclick="showPassengers()">1. Passenger List</button>
+      <button onclick="showSeniors()">2. Senior Citizens</button>
+      <button onclick="showUppercase()">3. Uppercase Name</button>
+      <button onclick="showTotalAge()">4. Total Age</button>
+      <button onclick="showTotalAgeReverse()">5. Total Age Reverse</button>
+      <button onclick="checkAdults()">6. Check Adults</button>
+      <button onclick="checkMinors()">7. Check Minors</button>
+      <button onclick="convertSeats()">8. Converted Seats</button>
+      <button onclick="newPassengerList()">9. New Passenger List</button>
+      <button onclick="firstRest()">10. First & Rest</button>
+    </div>
+    <div class="right">
+      <div id="train">Result will appear here...</div>
+    </div>
+  </div>
+
+  <script>
+    let name=["Sonu","Madhu","Shiva","Nayera"];
+    let age=[23,22,62,70];
+    let seat=["S1","S2","S3","S4"];
+    let gender=["M","F","M","F"];
+
+    function show(text){
+      document.getElementById("train").innerHTML =`<span class="typing">${text}</span>`;
+    }
+
+    function showPassengers(){
+      show("Passenger List:<br>" +
+        name.map((n,i)=>`Passenger: ${n} | Age: ${age[i]} | Seat: ${seat[i]} | Gender: ${gender[i]}`).join("<br>")
+      );
+    }
+
+    function showSeniors(){
+      show("Senior Citizens:\n" + name.filter((_,i)=>age[i]>60).join(", "));
+    }
+
+    function showUppercase(){
+      show("Uppercase:\n" + name.map(n=>n.toUpperCase()).join(", "));
+    }
+
+    function showTotalAge(){
+      show("Total Age = " + age.reduce((sum,a)=>sum+a,0));
+    }
+
+    function showTotalAgeReverse(){
+      show("Total Age Reverse = " + age.reduceRight((sum,a)=>sum+a,0));
+    }
+
+    function checkAdults(){
+      show("All Adults: " + age.every(a=>a>=18));
+    }
+
+    function checkMinors(){
+      show("All Minors: " + age.every(a=>a<18));
+    }
+
+    function convertSeats(){
+      let seatstr ="12,13,14,15";
+      let change = Array.from(seatstr.split(","));
+      show("Converted Seats:\n" +change);
+    }
+
+    function newPassengerList(){
+      let newName=[...name,"Raj","Pinki"];
+      show("New Passenger List:<br>" + newName.join(", "));
+    }
+
+    function firstRest(){
+      let [first,...rest]=name;
+      show("First Passenger: " + first + "<br>Rest: " + rest);
+    }
+  </script>
+</body>
+</html>

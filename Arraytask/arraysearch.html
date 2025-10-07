@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>School Result Analyzer</title>
+  <style>
+    body { 
+      font-family: Arial, sans-serif; 
+      padding: 20px; 
+    }
+    b{
+      color: rgb(47, 99, 232);
+    }
+    button { 
+      margin: 5px; 
+      padding: 8px 15px; 
+      cursor: pointer; 
+      background: #f34e4e;
+      color: white;
+      border-radius: 5px;
+      border: none;
+    }
+    #output { 
+      margin-top: 20px; 
+      padding: 10px; 
+      border:1px solid black; 
+      border-radius: 5px;
+      box-shadow: 1px 1px 1px 1px rgba(0,0,0,1);
+    }
+  </style>
+</head>
+<body>
+  <h2>School Result Management System</h2>
+
+  <p><b>Students:</b> ["Rahul", "Priya", "Aman", "Rahul", "Neha"]</p>
+  <p><b>Marks:</b> [25, 35, 45, 60, 75]</p>
+  <button onclick="IndexOf()">indexOf</button>
+  <button onclick="LastIndexOf()">lastIndexOf</button>
+  <button onclick="Includes()">includes</button>
+  <button onclick="FirstPass()">Passedstudent</button>
+  <button onclick="IndexPass()">studentfindIndex</button>
+  <button onclick="findLast()">findLast</button>
+  <button onclick="findLastIndex()">findLastIndex</button>
+  <h3>Output show here</h3>
+  <p id="output"><b>Output result....</b></p>
+
+  <script>
+    let students = ["Rahul", "Priya", "Aman", "Rahul", "Neha"];
+    let marks = [25, 35, 45, 60, 75];
+    function IndexOf() {
+      let pos = students.indexOf("Rahul");
+      document.getElementById("output").innerHTML = "First Rahul is at index: " + pos;
+    }
+
+    function LastIndexOf() {
+      let pos = students.lastIndexOf("Rahul");
+      document.getElementById("output").innerHTML = "Last Rahul is at index: " + pos;
+    }
+
+    function Includes() {
+      let result = students.includes("Neha");
+      document.getElementById("output").innerHTML = "Neha is enrolled: " + result;
+    }
+
+    function FirstPass() {
+      let passed = marks.find(m => m > 40);
+      document.getElementById("output").innerHTML = "First passing marks: " + passed;
+    }
+
+    function IndexPass() {
+      let index = marks.findIndex(m => m > 40);
+      document.getElementById("output").innerHTML = "First passing student index:" + index;
+    }
+
+    function findLast() {
+      let last = marks.findLast(m => m > 50);
+      document.getElementById("output").innerHTML = "Last student scoring above 50: " + last;
+    }
+
+    function findLastIndex() {
+      let idx = marks.findLastIndex(m => m > 40);
+      document.getElementById("output").innerHTML = "Last passing student index: " + idx;
+    }
+  </script>
+</body>
+</html>

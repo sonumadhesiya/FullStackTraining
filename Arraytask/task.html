@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array Task</title>
+</head>
+<style>
+  body{
+    font-family: arial,sans-serif;
+    padding: 25px;
+    background-color: #f2e5e5;
+  }
+  button{
+    border-radius: 5px;
+    background: rgb(151, 196, 235);
+    color: rgb(5, 5, 5);
+    margin: 5px;
+    padding: 8px 10px;
+    cursor: pointer;
+    border: none;
+  }
+  button:hover{
+    background-color: #45a049;
+  }
+  h1{
+    color: #333;
+  }
+
+</style>
+<body>
+  <h1>Online Bookstore</h1>
+  <p><b>Books:</b>["Math","Science","English"]</p>
+  <p><b>Array:</b>["Hindi","Chemistry"]</p>
+  <div class="button">
+  <button onclick="addbooks()">push/unshift</button>
+  <button onclick="removebooks()">pop/shift</button>
+  <button onclick="deletebooks()">delete</button>
+  <button onclick="mergebooks()">merge</button>
+  <button onclick="copybooks()">copywithin</button>
+  <button onclick="flatbooks()">flatten</button>
+  <button onclick="slicebooks()">slice</button>
+  <button onclick="stringbooks()">tostring/join</button>
+  <button onclick="lengthbooks()">length</button>
+  <button onclick="replacebooks()">replace</button>
+  <button onclick="displaybooks()">Display</button>
+  <button onclick="clearbooks()">Clear</button>
+  </div>
+  <h1>bookstore result</h1>
+    <p id="demo"></p>
+
+  <script>
+    let books=["Math","Science","English"];
+    let array=["Hindi","Chemistry"];
+    function showbooks(){
+      document.getElementById("demo").innerHTML="Books :" +books.join(","); 
+    }
+    function addbooks(){
+      books.push("Physics");
+      books.unshift("Biology");
+      showbooks();
+    }
+    function removebooks(){
+      books.pop();
+      books.shift();
+      showbooks();
+    }
+    function deletebooks(){
+      books.splice(2,1);
+      showbooks();
+    }
+    function mergebooks(){
+      books = books.concat(array);
+      showbooks();
+    }
+    function copybooks(){
+      books.copyWithin(0,0);
+      showbooks();
+    }
+    function flatbooks(){
+     let flatten=[["Math"],["Hindi"],["English"],["Physics"]];
+     let flat = flatten.flat();
+     document.getElementById("demo").innerHTML="flat books is: "+flat;
+    }
+    function slicebooks(){
+      let out=books.slice(0,2);
+      document.getElementById("demo").innerHTML="new slice book is:" +out.join("-");
+    }
+    function stringbooks(){
+      document.getElementById("demo").innerHTML="change into string:" +books.toString();
+    }
+    function lengthbooks(){
+      document.getElementById("demo").innerHTML="the length of books is:" +books.length;
+    }
+    function replacebooks(){
+      books[1] ="Zology";
+      showbooks();
+    }
+    function displaybooks(){
+      document.getElementById("demo").innerHTML=books.map((book,i) =>"position" +i+ ":" +book).join(" <br> ");
+    }
+    function clearbooks(){
+      books =["Math","Science","English"];
+      showbooks();
+    }
+    showbooks();
+    //numeric-sort
+  </script>
+</body>
+</html>

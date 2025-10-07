@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Numeric_sort</title>
+</head>
+<body>
+  <p id="demo"></p>
+  <p id="demo1"></p>
+  <p id="demo2"></p>
+  <p id="demo3"></p>
+  <script>
+    //sort()=sort method used to sort element of an array into a  ascending or descending order.
+    // syntax of sort()
+    // arr.sort()//string 
+  
+    let fruits =["apple","orange","banana","coconut","pineapple"];
+    document.getElementById("demo").innerHTML="fruits is sorted: " +fruits.sort();
+
+    //Numeric array sort means if we have numbers to sort so how can we sort
+
+    let numbers =[1,2,10,3,5,4,6,8,7,9];//arr.sort(comparefunction)
+    document.getElementById("demo1").innerHTML="Numbers is sorted: " +numbers.sort();
+    //if we use normal sort method for sorting numbers then its not going to be sorted
+    // output:1,10,2,3,4,5,6,7,8,9
+
+    //for sorting numbers we use comparingfunction
+    let number =[1,2,10,3,5,4,6,8,7,9];
+    let num= number.sort((a,b)=>a-b);//how its work let see
+
+    //(a-b) -> (a>b) = to value positive hoga means hum swap karenge value ko 
+    //(a-b) -> (a<b) = to value negative hoga means hum  value as it is rakhenge //1-2=-1
+    //(a-b) -> (a==b) = to value zero hoga means hum value as it is rakhenge
+
+     document.getElementById("demo2").innerHTML="Numbers is sorted: " +num;
+
+     let student =[{name:"sonu",age:23,cgpa:9.54},
+                  {name:"abhi",age:25,cgpa:8.54}
+                  ];
+     let std = student.sort((a,b)=>a.name.localeCompare(b.name));
+     //document.getElementById("demo3").innerHTML="string is sorted: " +std;
+      console.log(std);
+
+  </script>
+</body>
+</html>
